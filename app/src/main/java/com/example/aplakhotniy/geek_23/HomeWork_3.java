@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -74,7 +76,8 @@ public class HomeWork_3 extends Activity {
             @Override
             public void onClick(View v) {
                 textViewCollection_2.setText("");
-                sort(values);
+                Comp(values);
+                al.clear();
 
             }
         });
@@ -118,14 +121,28 @@ public class HomeWork_3 extends Activity {
 
     }
 
-    private void sort(String[] values){
-        String[] a = new String[values.length];
-        for(int k = 0; k < values.length; k++){
-            a[k] = values[k];
+//    private void sort(String[] values){
+//        String[] a = new String[values.length];
+//        for(int k = 0; k < values.length; k++){
+//            a[k] = values[k];
+//        }
+//        Arrays.sort(a);
+//        for(int i = 0; i < a.length; i++){
+//            textViewCollection_2.append(a[i] + ", ");
+//        }
+//    }
+    private void Comp(String[] values){
+        for(String i : values){
+            al.add(i);
         }
-        Arrays.sort(a);
-        for(int i = 0; i < a.length; i++){
-            textViewCollection_2.append(a[i] + ", ");
+        Collections.sort(al, new Comparator<String>() {
+            @Override
+            public int compare(String lhs, String rhs) {
+                return lhs.compareToIgnoreCase(rhs);
+            }
+        });
+        for(String o : al){
+            textViewCollection_2.append(o + ", ");
         }
     }
 }
