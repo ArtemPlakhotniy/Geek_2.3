@@ -12,7 +12,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 public class HomeWork_3 extends Activity {
 
     private TextView textViewCollection_1;
