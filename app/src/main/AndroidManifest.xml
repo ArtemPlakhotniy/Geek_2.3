@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".HomeWork_1"/>
         <activity android:name=".HomeWork_2"/>
+        <activity android:name=".HomeWork_3"/>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button hw_Btn_1;
     private Button hw_Btn_2;
+    private Button hw_Btn_3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         hw_Btn_1 = (Button)findViewById(R.id.hw_Btn_1);
         hw_Btn_2 = (Button)findViewById(R.id.hw_Btn_2);
+        hw_Btn_3 = (Button)findViewById(R.id.hw_Btn_3);
+
 
         hw_Btn_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), HomeWork_2.class);
+                startActivity(i);
+            }
+        });
+
+        hw_Btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), HomeWork_3.class);
                 startActivity(i);
             }
         });

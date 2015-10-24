@@ -41,7 +41,13 @@ public class HomeWork_2 extends AppCompatActivity {
                 try{
                     if(editText.getText().toString().length() > 0){
                         int b = Integer.valueOf(editText.getText().toString());
-                        resTxt.setText(""+factorial(b));
+                        if(factorial(b) >= 0){
+                            resTxt.setText(""+factorial(b));
+                        }
+                        else if(factorial(b) < 0){
+                            Toast r = Toast.makeText(getApplicationContext(), "Число привысило допустимый тип", Toast.LENGTH_SHORT);
+                            r.show();
+                        }
                     }
                     else {
                         Toast t = Toast.makeText(getApplicationContext(), "Введите число!!!", Toast.LENGTH_SHORT);
@@ -62,7 +68,13 @@ public class HomeWork_2 extends AppCompatActivity {
                 try{
                     if(editText2.getText().toString().length() > 0){
                         int k = Integer.valueOf(editText2.getText().toString());
-                        resFibTxt.setText(""+fibonachi(k));
+                        if (fibonachi(k) >= 0){
+                            resFibTxt.setText(""+fibonachi(k));
+                        }
+                        else if(fibonachi(k) < 0){
+                            Toast l = Toast.makeText(getApplicationContext(), "Число привысило допустимый тип", Toast.LENGTH_SHORT);
+                            l.show();
+                        }
                     }
                     else {
                         Toast t = Toast.makeText(getApplicationContext(), "Введите число!!!", Toast.LENGTH_SHORT);
@@ -84,7 +96,13 @@ public class HomeWork_2 extends AppCompatActivity {
         else {
             int res = 1;
             for(int i = 1; i <= a; i++){
-                res = res * i;
+                boolean maxInt = ((long)res * i) <= Integer.MAX_VALUE;
+                if(maxInt){
+                    res = res * i;
+                }
+                else {
+                    return -1;
+                }
             }
             return res;
         }
@@ -100,11 +118,17 @@ public class HomeWork_2 extends AppCompatActivity {
             int y = 1;
             int res = 1;
             for(int i = 0; i < k; i++){
-                res = x + y;
-                x = y;
-                y = res;
+                    boolean maxInt = ((long)res + y) <= Integer.MAX_VALUE;
+                    if(maxInt){
+                        res = x + y;
+                        x = y;
+                        y = res;
+                    }
+                    else {
+                        return -1;
+                    }
             }
-            return res;
+                return res;
         }
     }
 }
